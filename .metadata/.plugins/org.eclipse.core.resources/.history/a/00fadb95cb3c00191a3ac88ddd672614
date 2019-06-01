@@ -1,0 +1,70 @@
+package testing;
+
+import java.util.Set;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class PHP_Travels2 {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Debojeet\\Desktop\\Selenium\\chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		driver.get("https://phptravels.com/404/");
+		driver.manage().window().maximize();
+	
+		String parent= driver.getWindowHandle();
+		
+		driver.findElement(By.xpath("/html/body/header/div[1]/div/div/div[2]/div/ul[2]/li[2]/a/i")).click();
+		
+		Set<String> allWindows= driver.getWindowHandles();
+		int count= allWindows.size();
+		System.out.println(count);
+	
+	    for(String childWindow : allWindows) {
+	    	
+	    	if(!parent.equalsIgnoreCase(childWindow)) {
+	    		
+	    		driver.switchTo().window(childWindow);
+	    		Thread.sleep(5000);
+	    		driver.findElement(By.xpath("//*[@id=\"body:i35\"]/div/div/div/a")).click();
+	    		Thread.sleep(10000);
+	    		
+	    		
+	    		
+	    		
+	    		
+	    		
+	    	}
+	    	
+	    	
+	    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

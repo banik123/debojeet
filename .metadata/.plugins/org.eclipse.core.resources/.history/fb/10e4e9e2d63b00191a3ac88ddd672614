@@ -1,0 +1,28 @@
+package testing;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class PHP_Travels {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Debojeet\\Desktop\\Selenium\\chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		driver.get("https://phptravels.com/404/");
+		driver.manage().window().maximize();
+		Thread.sleep(20000);
+		driver.findElement(By.id("onesignal-popover-allow-button")).click();
+		Thread.sleep(4000);
+//		driver.findElement(By.name("EMAIL")).sendKeys("djohnn12@gmail.com");
+	
+		driver.switchTo().frame(1);
+		
+		driver.findElement(By.id("mc-EMAIL")).sendKeys("djohnn12@gmail.com");
+	
+	
+	
+	}
+
+}

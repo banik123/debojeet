@@ -1,0 +1,107 @@
+package testing;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Naukri_Com {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Debojeet\\Desktop\\Selenium\\chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		driver.get("https://www.naukri.com/");
+		driver.manage().window().maximize();
+		Thread.sleep(5000);
+		String parent= driver.getWindowHandle();
+		driver.findElement(By.xpath("//*[@id=\"p0widget\"]/div/div[1]/div/input")).click();
+		
+		Set<String> allWindows= driver.getWindowHandles();
+		
+		ArrayList<String> tabs= new ArrayList<>(allWindows);
+		
+		
+		
+		
+		
+//	     WebElement frame= driver.findElement(By.xpath("//*[@id=\"flowBifurcation\"]/div[2]/form"));
+//	     driver.switchTo().frame(frame);
+	     Thread.sleep(5000);
+	     driver.findElement(By.xpath("//*[@id=\"flowBifurcation\"]/div[2]/form/div[1]/div/button")).click();
+	     Thread.sleep(5000);
+	     driver.navigate().back();   
+	     Thread.sleep(2000);
+	     WebElement menu= driver.findElement(By.xpath("//a[contains(text(), 'Companies')]"));
+	     Actions actions= new Actions(driver);
+	     actions.moveToElement(menu).perform();
+	     Thread.sleep(6000);
+	     driver.findElement(By.partialLinkText("Interview Questions")).click();
+	     
+	     
+	     Thread.sleep(5000);		 
+	
+	     driver.switchTo().window(tabs.get(1));
+	     driver.close();
+	     Thread.sleep(3000);
+	     driver.switchTo().window(tabs.get(2));
+	     driver.close();
+	     Thread.sleep(3000);
+	     driver.switchTo().window(tabs.get(3));
+	     driver.close();
+	     Thread.sleep(2000);
+	     	     
+	     
+
+	     Set<String> currentWindows= driver.getWindowHandles();
+	     int count= currentWindows.size();
+	     
+	     ArrayList <String> windows= new ArrayList<>(currentWindows);
+	     System.out.println(currentWindows);
+	     
+	     driver.switchTo().window(windows.get(1));
+	     	     
+	     driver.findElement(By.xpath("/html/body/div[1]/form/div/div")).click();
+	     Thread.sleep(3000);
+//	     List <WebElement> list= driver.findElements(By.xpath("\"//ul[contains(@class, 'select-options')]//li"));
+//	     
+//	     int Counts= list.size();
+//	     
+//	     for (int i=0; i<Counts; i++)
+//	     {
+//	    	 System.out.println(list.get(i).getText());
+//	    	 
+//	     }
+	    	 
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

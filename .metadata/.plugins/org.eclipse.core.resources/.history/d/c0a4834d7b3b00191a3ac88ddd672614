@@ -1,0 +1,22 @@
+package testing;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class PHP_Travels {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Debojeet\\Desktop\\Selenium\\chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		driver.get("https://phptravels.com/404/");
+		driver.manage().window().maximize();
+		Thread.sleep(20000);
+		int size = driver.findElements(By.tagName("iframe")).size();
+		System.out.println(size);
+//		driver.switchTo().frame(By.id("normal-popover"));
+		
+	}
+
+}

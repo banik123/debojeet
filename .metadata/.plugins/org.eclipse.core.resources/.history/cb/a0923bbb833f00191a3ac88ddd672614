@@ -1,0 +1,54 @@
+package testing;
+
+import java.util.ArrayList;
+import java.util.Set;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Naukri_Com {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Debojeet\\Desktop\\Selenium\\chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		driver.get("https://www.naukri.com/");
+		driver.manage().window().maximize();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//*[@id=\"p0widget\"]/div/div[1]/div/input")).click();
+		
+//	     WebElement frame= driver.findElement(By.xpath("//*[@id=\"flowBifurcation\"]/div[2]/form"));
+//	     driver.switchTo().frame(frame);
+	     Thread.sleep(5000);
+	     driver.findElement(By.className("action-btn fresh")).click();
+	        
+	        
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,41 @@
+package testing;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class PHP_Travels {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Debojeet\\Desktop\\Selenium\\chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		driver.get("https://phptravels.com/404/");
+		driver.manage().window().maximize();
+		Thread.sleep(20000);
+		driver.findElement(By.id("onesignal-popover-allow-button")).click();
+		Thread.sleep(4000);
+//		driver.findElement(By.name("EMAIL")).sendKeys("djohnn12@gmail.com");
+	
+		
+// Below line is used to identify any frame which has no ID. 
+		
+		WebElement frame = driver.findElement(By.xpath("//*[@id=\"PopupSignupForm_0\"]/div[2]/div[2]/iframe"));
+		driver.switchTo().frame(frame);
+		Thread.sleep(2000);
+		driver.findElement(By.id("mc-EMAIL")).sendKeys("djohnn12@gmail.com");
+		Thread.sleep(3000);
+		driver.findElement(By.className("button")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.partialLinkText("Click here to update your profile")).click();
+		
+		Alert alert= driver.switchTo().alert();
+		String alertText= driver.switchTo().alert().getText();
+		System.out.println(alertText);
+		alert.accept();
+	}
+	
+
+}
